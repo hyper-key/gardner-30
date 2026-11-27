@@ -1,0 +1,67 @@
+This development is incomplete for the requested end-to-end theorem m3(30)=31.
+
+The kernel-checked structural results now start from the unchanged Good 30 q
+predicate and q.length=30. They establish:
+
+* No isolated queens, using the equality case of the perimeter argument.
+* The coarse saturation restrictions, then fifteen paired rows and columns.
+* Preservation of literal legality and maximality under transposition and
+  reflection; an orientation with a complete difference family is available.
+* A diagonal cover of the unused 15-by-15 product, requiring 28 to 30 diagonals.
+* Equal unused spans when there are fewer than thirty diagonals.
+* Equal centered axis sums when the oriented sum family is deficient.
+* The H=21A^2-5A2 identity for the fully paired case, derived from the actual
+  affine line cover, including the complete two-constant-factor expansion.
+
+Reduction.lean packages these deductions in NecessaryProfile. Its
+lower31_of_profile_exclusion theorem has an explicit unproved argument
+excluding all such profiles. This is a conditional interface, not the requested
+unconditional lower bound. No theorem asserting that argument is supplied.
+
+The residual moment part has also been replaced with kernel-checkable proof
+certificates. MomentCuts.lean proves soundness of linear/quadratic bounds and
+exhaustive splits over the allowed residual values. ResidualMoments.lean proves
+that removing two copies of each required saturated key yields a model of that
+checker, allowing further saturations and arbitrary residual multiplicities.
+PairedResiduals.lean connects this model to actual integer queen coordinates
+whose row and column projections are paired.
+
+MomentData.lean provides kernel proofs for all 2,032 original moment leaves,
+using decide +kernel. Three original leaves require finite splits; the others
+use direct linear or quadratic separators. The memoized generator visits
+2,888 distinct cut states and 108 split states. MomentContexts00..15.lean verify each
+numerical problem against the corresponding concrete axes and required keys
+and transfer its exclusion to the paired coordinate model. The generator is
+untrusted: every generated mathematical assertion is checked by Lean.
+
+What remains outside the kernel is substantial:
+
+1. Formalize the ordinary-diagonal-to-modular projection filters, including
+   the two separate exception budgets in the fully paired equal-span case,
+   and derive the unequal-span endpoint balance from actual assignments.
+2. Prove exhaustive generation of all projected domains (9,016 and 11,691
+   representatives) and the zero-result unequal-span enumeration. Successful
+   execution of the existing programs does not discharge these obligations.
+3. Formalize and instantiate the outer local rejection proofs: unsupported
+   targets, forced keys, matchings, and cover trees. The moment terminals are
+   now proved, but the entire 20,707-record collection is not yet a kernel proof.
+4. Discharge the global profile exclusion and combine the unconditional
+   lower31 theorem with upper31 and the existing attained-minimum definition.
+
+Existing kernel bounds remain 30 <= minimum30 <= 31. The original mixed
+mathematical/computational proof and its replay remain available, with the
+scope described in Gardner/structure/arguments.md and the prior audit.
+
+Replay the new kernel-checked portion with:
+  bash Gardner/kernel/replay.sh
+
+This needs the repository-pinned Lean/mathlib dependencies. It performs normal
+kernel checking, including every concrete moment certificate, and audits the
+dependencies of all 2,032 context theorems against only propext,
+Classical.choice, and Quot.sound. It explicitly reports that the full lower
+bound remains unfinished. No native_decide, new axiom, or placeholder proof
+is used in this development.
+
+Regenerate the proof-data sources, then replay them, with:
+  python3 Gardner/kernel/generate_moment_cuts.py
+  bash Gardner/kernel/replay.sh

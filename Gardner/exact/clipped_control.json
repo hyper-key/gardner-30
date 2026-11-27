@@ -1,0 +1,1 @@
+{"known12": {"n": 12, "count": 12, "empty": 132, "saturated_lines": 22, "addable": [], "maximal": true}, "profile_count": 1, "known12_matches_source": true, "solver_results": {"unsat": 33, "unknown": 10}, "solver_wall_total_s": 6.528}

@@ -1,0 +1,2 @@
+{"n": 30, "size": 30, "cut": false, "timeout_ms": 5000, "seed": 0, "status": "unknown", "reason": "(:reason-unknown \"timeout\")", "conflicts": "87794", "decisions": "625374", "memory": "20.60", "rlimit-count": "11321871", "wall_s": 5.029}
+{"n": 30, "size": 30, "cut": true, "timeout_ms": 5000, "seed": 0, "status": "unknown", "reason": "(:reason-unknown \"timeout\")", "conflicts": "167836", "decisions": "1249606", "memory": "21.98", "rlimit-count": "30578905", "wall_s": 5.03}

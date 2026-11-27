@@ -1,0 +1,10 @@
+eaa7e9bc46b7c0af004fe267f5efc8eb8989ace535d9de78af6dd1007f826a70  /tmp/gardner-local-lean.TnvHloUs/records.jsonl
+29-line records 10, quota leaves 2, moment leaves 2
+30-line equal-span records 10, quota leaves 1, moment leaves 3
+PASS elapsed milliseconds 9
+29-line records 9016, quota leaves 22057, moment leaves 960
+30-line equal-span records 11691, quota leaves 31454, moment leaves 1072
+PASS elapsed milliseconds 4307
+uncaught exception: quota leaf within quota
+uncaught exception: missing records
+PASS damaged proof and incomplete-domain controls rejected.

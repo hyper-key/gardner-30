@@ -1,0 +1,6 @@
+known-witness: sat
+target-profile-exists: sat
+repeated-rejected: unsat
+wraparound: unsat
+all-two-impossible: unsat
+closing-edge-rejected: unsat

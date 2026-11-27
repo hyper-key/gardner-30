@@ -1,0 +1,44 @@
+Clean replay completed successfully, 2026-11-27.
+Source commit: ecb8e8067483b37b1c11dc057b137a3df849941a
+Source checkout: /home/dev/projects/proofs
+Clean checkout: /home/dev/projects/proofs-replay-20261127
+
+Commands actually executed from /home/dev/projects/proofs:
+  git worktree add --detach /home/dev/projects/proofs-replay-20261127 ecb8e8067483b37b1c11dc057b137a3df849941a
+  mkdir -p /home/dev/projects/proofs-replay-20261127/.lake
+  cp -a --reflink=auto .lake/packages /home/dev/projects/proofs-replay-20261127/.lake/
+  test ! -e /home/dev/projects/proofs-replay-20261127/.lake/build
+  git -C /home/dev/projects/proofs-replay-20261127 status --porcelain
+All exited 0; git status produced no output. The project build directory did
+not exist. Only dependency sources and their cached builds were copied.
+
+Then from /home/dev/projects/proofs-replay-20261127:
+  git status --porcelain
+  test ! -e .lake/build
+  bash Benchmark/replay.sh > /home/dev/projects/proofs/Benchmark/logs/replay-clean.txt 2>&1
+Git status again had no output, and the script exited 0. It rebuilt the
+benchmark, replayed Feedback.lean, and produced these checked exit statuses:
+Python 0; Z3 0; Lake build 0; repaired proof 0; axioms 0; correct comparator 0;
+incomplete comparator 1; weakened-statement comparator 1. The last two are
+expected rejections. Fixed source hashes matched before and after.
+
+Read logs/replay-clean.txt and logs/clean-replay/ for full output. Build logs
+show new builds for SixPointDefs and all four theorem modules.
+
+MCP workspace isolation, AFTER the clean replay:
+  /home/dev/projects/proofs/Isolation.lean: n + 0 = n
+  /home/dev/projects/proofs-replay-20261127/Isolation.lean: n * 1 = n
+The second file was deliberately changed only after replay finished. Two
+concurrent lean_goal calls (line 4, structured format) returned the respective
+distinct goals_before values. Both files intentionally fail inside the proof,
+as the separate diagnostic calls confirm. An empty goals_after by itself is
+not a successful proof check; diagnostics must also be read. The goal and
+diagnostic JSON and both source snapshots are saved. The replay worktree's
+Isolation.lean and replay logs are retained; no user work was discarded.
+
+Replaying elsewhere on this provisioned VM:
+Use a fresh destination path, check out the above commit, copy only dependency
+caches as shown, and run bash Benchmark/replay.sh. On another configured
+machine, obtain the pinned dependencies with lake update and lake exe cache
+get first, and ensure this Lean toolchain includes comparator and its bundled
+paranoid checkers. No claim of a full compiler/bootstrap rebuild is made.

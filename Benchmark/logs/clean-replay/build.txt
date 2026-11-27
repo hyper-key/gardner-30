@@ -1,0 +1,21 @@
+⚠ [964/972] Built SixPointDefs (1.5s)
+warning: SixPointDefs.lean: imports `Mathlib.Data.Fintype.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SixPointDefs.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SixPointDefs.lean: imports `Mathlib.Tactic.FinCases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SixPointDefs.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SixPointDefs.lean: imports `Mathlib.Data.Nat.Dist` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SixPointDefs.lean: imports `Mathlib.Data.Fin.VecNotation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [965/972] Built SixPointChallenge (1.0s)
+warning: SixPointChallenge.lean:5:8: declaration uses `sorry`
+warning: SixPointChallenge.lean:6:8: declaration uses `sorry`
+warning: SixPointChallenge.lean:7:8: declaration uses `sorry`
+warning: SixPointChallenge.lean:8:8: declaration uses `sorry`
+warning: SixPointChallenge.lean:9:8: declaration uses `sorry`
+warning: SixPointChallenge.lean:10:8: declaration uses `sorry`
+warning: SixPointChallenge.lean:12:8: declaration uses `sorry`
+warning: SixPointChallenge.lean:14:8: declaration uses `sorry`
+✔ [967/972] Built SixPointSolution (1.3s)
+✔ [969/972] Built SixPointWeakened (1.3s)
+⚠ [971/972] Built SixPointIncomplete (1.3s)
+warning: SixPointIncomplete.lean:5:8: declaration uses `sorry`
+Build completed successfully (972 jobs).

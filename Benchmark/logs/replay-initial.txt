@@ -1,0 +1,23 @@
+SixPointDefs.lean: OK
+SixPointChallenge.lean: OK
+Benchmark/comparator.json: OK
+RUN python-reference: python3 Benchmark/six_point_reference.py
+EXIT 0 (expected 0)
+RUN z3-reference: python3 Benchmark/z3_reference.py
+EXIT 0 (expected 0)
+RUN build: lake build SixPointChallenge SixPointSolution SixPointIncomplete SixPointWeakened
+EXIT 0 (expected 0)
+RUN feedback-repaired-cli: lake env lean Feedback.lean
+EXIT 0 (expected 0)
+RUN axioms: lake env lean Benchmark/Axioms.lean
+EXIT 0 (expected 0)
+RUN comparator-correct: lake comparator --config Benchmark/comparator.json --paranoid
+EXIT 0 (expected 0)
+RUN comparator-incomplete: lake comparator --config Benchmark/comparator-incomplete.json --paranoid
+EXIT 1 (expected 1)
+RUN comparator-weakened: lake comparator --config Benchmark/comparator-weakened.json --paranoid
+EXIT 1 (expected 1)
+SixPointDefs.lean: OK
+SixPointChallenge.lean: OK
+Benchmark/comparator.json: OK
+PASS: known-answer suite, repaired proof, comparator controls, fixed source hashes.

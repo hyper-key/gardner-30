@@ -1,0 +1,2 @@
+720 permutations checked; 17 of 21 count profiles realized.
+Witness, repeated vertex, wraparound, closing edge, and parity controls passed.

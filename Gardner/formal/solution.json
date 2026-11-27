@@ -1,0 +1,14 @@
+{
+  "challenge_module": "GardnerChallenge",
+  "solution_module": "GardnerSolution",
+  "theorem_names": [
+    "Gardner.diff_key_iff",
+    "Gardner.add_fails_iff",
+    "Gardner.upper31"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ]
+}

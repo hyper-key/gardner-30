@@ -1,0 +1,6 @@
+'Gardner.Grid30.two_constants_at_60' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gardner.Grid30.one_constant_at_59' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gardner.Grid30.no_cover_at_quota' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gardner.Grid30.intercept_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gardner.Bridge.coarse_saturation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gardner.Bridge.quota_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]

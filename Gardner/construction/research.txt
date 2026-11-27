@@ -1,0 +1,303 @@
+Construction experiments, 2026-11-27
+
+Literature and provenance
+
+Donald Knuth reported a white-square n+1 upper bound for boards through n=30
+in his own 26 August 2014 comment on https://oeis.org/A219760 . The numerical
+sequence stops at n=29. Its 2024 extension to 28 and 29 is credited to Andy
+Huchala. Huchala's posted Gurobi model is based on Rob Pratt's ILP and contains
+no instance coordinates: https://oeis.org/A219760/a219760_1.py.txt .
+John Schmitt's 2025 Linz slides show a question mark at n=30:
+https://www.algebra.uni-linz.ac.at/Students/Seminare/s25/No3Talk_Extended.pdf .
+Searches of these sources, the 2014 and 2025 papers, and Knuth's 2014
+correspondence reproduced in Schmitt's 2019 talk did not locate the original
+31 coordinates. The witness here independently reproduces the reported
+construction class and bound. It is not attributed to Knuth as a transcription.
+
+In Schmitt's reproduction of Knuth's correspondence, slides 25–30,
+https://community.middlebury.edu/~jschmitt/talks/No3talk-Feb%2719.pdf ,
+Knuth describes SAT, one-color and odd-row restrictions and further permutation
+structure. Knuth reported that SAT found an 18-queen witness by searching at
+most 19 but ran hours without finding one when asked for at most 18. His
+12-queen equality exception had all eight board symmetries and used both colors.
+The sequence data are reported outcomes; the computational claims
+below have independently checkable saved inputs and controls. The proof in
+Cooper–Pikhurko–Schmitt–Warrington, Theorem 1, supplies the even-board lower
+bound; the sharpened result of Oh–Schmitt–Wang applies to n=1 mod 4.
+
+Coordinate convention: [row,column], top left [0,0]. Empty squares can be
+blocked only by a saturated row, column, difference or sum diagonal.
+
+Experiments and decisions
+
+C1. Could Knuth's reported 31-white-queen result be exhibited explicitly?
+Prescribe two queens at even-even sites in each even row and each even
+column, plus one additional odd-odd queen (2h+1,2k+1). Search is restricted
+for construction. Any uncovered cell must be odd-odd. For (2i+1,2j+1),
+the two compressed diagonal labels are i-j and i+j+1. Choose a cover by these
+labels for all (i,j) except (h,k), and force those diagonal occupancies to two.
+For each parity class enumerate possible unions U of sum-label neighborhoods
+of unselected difference labels. Include U and all differences whose
+neighborhoods are not subsets of U. Every cover contains one produced this way.
+The even block was additionally made invariant under transposition as a search
+heuristic. Every produced placement was checked on all 900 squares.
+
+Initial fixed seed 148, one Z3 4.16.0 process at a time, 300 trials with
+160ms each yielded no witness (9 unknown). Widening to 320ms and 1,600
+planned trials returned a witness at zero-based trial 410 in 14.404s wall,
+after 402 UNSAT and eight unknown. The template contents and logs are saved.
+Fast replay uses profiles.py rather than repeating this stochastic-budget stage:
+the first moments fix sum(d)=0 and sum(s)=2m(m-1), and the second moment is
+sum(d*d+(s-m+1)^2)=2m(m^2-1)/3 for m=n/2. These follow by substituting
+d=i-j and s=i+j and summing over the 2m even-block queens with each i and j
+repeated twice. Enumerate residual diagonal occupancies respecting these
+moments before PB solving. Seed 111, 300ms per solver query, 200 query ceiling:
+at hole (5,0), 11th hole considered, 3rd query, witness in 0.298s.
+All outputs refer to witness31-initial.json, identical to witness31.json.
+Do not interpret reported local solver UNSATs as certificates.
+
+C2. Are the size-n 10,18,26 constructions and the exceptional 12 construction
+available for calibration? Remove the additional odd-odd queen, apply identical
+diagonal profiles, then accept only actual witnesses. The 700ms per query
+ceiling suffices; all three found on first query, within 0.05 seconds each.
+Independent small direct code enumerates eightfold-orbit pairs on the 12 board
+to reconstruct its witness. The five saved witnesses (including 31) all pass
+controls.py's direct triple test and every single-square extension test.
+Their optimality for n=10,12,18,26 also uses the published even-board bound.
+None of these coordinates is a claimed transcription. The exact 13x13
+compressed parity-subgrid profile enumeration produced 14 inclusion-minimal
+covers surviving the 13+13 label budget and one distinct multiplicity profile
+surviving the moments. See controls.log.
+
+C3. Can an intact known 26 be extended using four queens of either color?
+For each of the 25 translations within a 30x30 board, put down witness26.json
+and enumerate every legal four-point addition by first addable square in
+lexicographic order. Bit masks remove newly blocked squares after each
+addition. All placements of the subgroup of the eight board isometries of
+this seed are included up to the corresponding relative translation and an
+isometry of the large board. The line multiplicity profile, together with
+the fact that all seed cells lie on full rows, suffices to determine all
+addable sets. The single-profile computation in C2 therefore extends these
+observations to the other seeds with two queens in every even row and
+every even column on an embedded 26x26 after symmetries. It does not cover
+arbitrary 26 seeds. Sum over translations (counting each separately):
+19,605,864 legal four-queen extensions. Best left 31 addable cells. Wall
+22.601s, one process. Full histograms, best board and 4 extra points in
+transplant-result.json. Direct enumeration reproduces all counts and
+hole histograms for six small seed/depth pairs; independent triple checks
+give the saved 30-board best exactly 31 legal additions. Pivot away from
+unchanged seeds: large holes remain even under unrestricted-color additions.
+
+C4. Does the mixed-color eightfold symmetry at n=12 suggest a 28-point
+eightfold-invariant core + two arbitrary additions (total 30) at n=30?
+On an even board eightfold orbits have sizes 8 or 4. A 4-orbit has two
+points on each main diagonal, so at most one 4-orbit is legal. Hence
+any 28-core has three distinct 8-orbits and one 4-orbit. Enumerate all
+such legal cores. Given two added squares, the only newly saturated lines
+are initially singleton lines and at most one formerly empty common line.
+Their coverage plus the two squares bounds how many holes can be filled.
+The algorithm prunes when this optimistic bound cannot beat the incumbent,
+and otherwise scores the pair by checking every hole. With 268,750 legal
+cores total, best remaining holes = 32. Independent point-triple enumeration
+reproduced the best scores for 4-core+2 on the 6,8,10 boards (4,14,32).
+Raw logs record the 0.98 CPU second and the best board. This restricted result
+does not rule out non-invariant cores. The 28+2 and intact-26 routes are poor
+starting points, so no larger search of either type was launched.
+
+Reproduce on the development box from the repository root:
+    bash Gardner/construction/replay.sh
+The fresh replay directory is printed. Python 3.13, Z3 4.16.0, C++20 with the
+pre-provisioned Nix GCC 15.3.0 wrapper are sufficient. Search outputs and logs
+are empirical. The independently checked 31-witness is evidence for the upper
+bound. No unrestricted 30-case decision or certificate was produced here.
+
+C5. Could regular row and column occupancy patterns evade the interval,
+one-swap and monochrome obstructions? Enumerate every balanced length-30
+mask with a period dividing 30 and at most ten; periods 2,6,10 suffice,
+since a repeated odd-length block cannot have density 1/2. There are 270
+masks. Reversing either axis independently by a board reflection preserves
+the problem, yielding 135 representatives. Transposition exchanges occupied
+axis sets, so checking every unordered pair with repetition gives 9,180
+cases. No cyclic shifts are quotiented. For each case require exactly two
+queens in each prescribed row and column: every queen then belongs to their
+Cartesian product and its complementary product must be covered diagonally.
+The experiment imports the earlier axis_matching.py screen without changing it.
+
+Resource ceiling one CPU minute. Generation took 2.761 CPU seconds. A
+matching of >30 different uncovered cells with pairwise distinct difference
+and pairwise distinct sum labels rejects 9,108 cases. A cell lacking two
+potential queens on either diagonal rejects 54, and forcing >15 saturated
+lines of one diagonal slope rejects 17. Passing pair (77,77) is precisely
+even rows and even columns. The closure-based necessary moment screen in
+controls.py, independent of the other structural analysis, returns 16
+minimal covers within the count budget and zero compatible profiles at
+board side 30. Thus every axis pair in this periodic family is eliminated.
+No mixed pattern, including anything resembling the n=12 axes, survived.
+These are restricted certificate-backed computational results, not a claim
+about all 30-queen placements.
+
+Raw 9,179 rejection proofs: periodic-cert.json.gz (deterministic gzip,
+400,282 bytes). check_periodic.py independently regenerates all mask pairs,
+inverts diagonal labels to board coordinates, validates disjoint labels in
+each matching and checks forced lines directly. The checker accepts the
+original and rejects a corrupted matching. For the fastest replay from this
+directory use “python3 periodic.py && python3 check_periodic.py”. For the
+single surviving axis pair, controls.py additionally runs moment enumeration.
+
+C6. Can a 30-queen maximal placement have exactly 15 paired difference
+diagonals and 13 paired sum diagonals? This is a full diagonal-count subcase;
+the seed, periodicity, and symmetry restrictions used earlier are absent.
+
+Inputs from the coordinator's mathematical reduction: each of the 15 active
+rows and columns has two queens. The 15 unused index sets on each axis have
+a common span e and, after simultaneous reflection of both axes, each sums
+to 225. A single-axis reflection exchanges complete and deficient diagonal
+families when necessary. Let A and B be the unused index sets after translating
+their minima to zero and identifying the endpoints 0 and e, giving size-14
+sets in the cyclic group of order e containing zero. The unused product has
+56 perimeter squares. With only 28 saturated diagonals, each must hit exactly
+two perimeter squares, and no perimeter square can be hit twice. Therefore
+each cell (a,b) of the unused grid lies either on a sum line having both
+boundary intercepts among the corresponding unused axis values, or on a
+difference line with the same property. Reading intercepts modulo e gives
+
+    (a+b in A and a+b in B) or (a-b in A and b-a in B).
+
+This is the necessary condition of Karandikar and Dutta, section 5.2,
+Question 5.8, DOI 10.37236/12003. We do not use their conjectural symmetry or
+any computed classification from their paper. The condition is necessary
+irrespective of the relative sizes of the two diagonal families; its
+application here uses exactly two hits for every saturated line.
+
+Enumerate spans 14 through 29, transposing A and B to avoid duplication.
+The full 15-element unused axis is t + (A union {e}), so its forced translation
+is t=(225-e-sum(A))/15, an integer between 0 and 29-e. For b in B the
+individual condition A subset ((A-b) union (A+b)) is necessary; reject an A
+when fewer than 14 possible step values b remain. The primary implementation
+modular_axes.cpp uses bit rotations. It tests the full original modular
+condition against each possible B. Independent verify_modular_axes.cpp
+instead generates increasing full-board 15-subsets of sum 225 using elementary
+bounds on the remaining sum, and checks the step filter and pair condition
+by scalar loops. Both emit the same 46 pairs, byte for byte (0.44 and 1.76
+CPU seconds). The per-span counts in order e=14..29 are
+
+    1, 0, 1, 3, 4, 3, 2, 3, 5, 3, 5, 0, 8, 0, 7, 1.
+
+For 43 pairs modular-certificate.json exhibits 29 unused cells whose difference
+labels are distinct and whose sum labels are distinct. Covering them requires
+at least 29 saturated diagonals. One pair admits an unused cell with fewer
+than two possible queens along each of its two diagonals. A further pair has
+both active axes 7..21: targets (0,j), j=22..29, and (29,j), j=0..6 force
+all 14 sum labels 22..35, too many. The remaining pair is exactly the
+odd-index unused product, already excluded by the monochrome argument.
+check_modular_certificate.py checks every stored obstruction and rejects a
+corrupted matching (modular-cert-check.log).
+
+A parallel mathematical check for these same 46 pairs is retained. Enumerate
+all perfect matchings of 56 perimeter cells using diagonal edges that could
+hold two active queens. There are 189,824 matchings over all pairs, 40,263
+with a 15+13 split, and only seven cover the full unused product. All seven
+come from the single monochrome axis pair. Their 15 paired difference keys D
+include all 30 queens. Their 13 paired sum keys S account for 26, leaving four
+distinct singleton sum keys. The whole-board first and second moments require
+
+    sum(singletons)=2(sum(active rows)+sum(active columns)-sum(S)),
+    sum(singletons squared)=4(sum(active rows squared)+sum(active columns squared))
+                            -2 sum(d in D, d*d)-2 sum(s in S, s*s).
+
+None of the seven admits such a quadruple. This enumeration used 2.56 CPU
+seconds. All budget limits were below the assigned two core-minutes.
+
+Reproduce both axis enumerations, geometry certificates, and full perimeter
+and moment fallback from the repository root:
+    bash Gardner/construction/replay_modular.sh
+The 46-pair classification relies on exhaustive finite enumeration; the
+geometric witnesses for 45 pairs have a separately written checker. The
+axis-sum reduction used at entry is part of the coordinator's wider
+mathematical argument. No unrestricted 30-versus-31 decision follows yet.
+
+C7. Independent audit of the complete 15+14 projected domain.
+
+With equal span e let the two unused axis sets include 0 and e after
+translation. Reducing modulo e gives two size-14 sets U,V. Let h_i count
+the distinct unused perimeter cells on selected physical diagonal i. At
+most two such cells lie on one diagonal, including corner-touching lines.
+Since 29 lines cover the entire perimeter, sum h_i >= 56. Therefore
+sum(2-h_i) <= 2, even if cells have multiple covers. At most two lines
+have h_i < 2. Every other line obeys the modular condition from C6.
+A failed modular square can therefore only have been covered by one of
+at most two exceptional *typed* modular labels. Assigning the residues
+of physical line keys is a relaxation: physically distinct lines may share
+one residue. The proof requires no converse. Cells with residue 0 may use
+either actual endpoint; choose the point with smaller coordinate throughout.
+Selected diagonal capacities always refer to ordinary board coordinates.
+
+For one fixed axis U and opposite step y, defects are x in U for which
+neither x+y nor x-y lies in U. A given exceptional diagonal removes at
+most one distinct x in this residue column. For at least 14 y's the defects
+must all be coverable by the same two typed labels. Our independent generator
+tests each candidate first label, then counts how many further rows each
+possible second label repairs. It enumerates fixed-density cyclic necklaces
+and restores every rotation containing 0. A cyclic shift U -> U+t preserves
+this unary condition: defective x shifts to x+t and both typed repair keys
+shift by t. No cyclic symmetry restriction survives into the pair list.
+Assertions verify that each generated necklace is minimal over its rotations,
+that these representatives are strictly increasing, and that all their
+distinct rotations with 0 present total exactly binomial(e-1,13) before any
+filtering. These checks give an exhaustive domain independent of assumptions
+about correctness of the necklace recursion.
+
+For each located pair U,V, take all modularly failed cells and view them as
+edges between difference and sum residues. A cover of size two can use two
+difference keys, two sum keys, or one of each. The independent generator
+tests each possibility directly, with an early three-disjoint-edge rejection.
+Completely specified translations have equal row and column totals, hence
+15*(t_V-t_U)=sum(U)-sum(V). This is the existing equal-active-sums identity
+in the orientation with D complete. Only transpose is quotiented. No
+mean-14-or-15 condition was used at 15+14.
+
+Independent audit_frame29.cpp regenerates all 9,016 rows byte for byte in
+5.26 CPU seconds; SHA-256 99c7e001c6f39c0a018e796eb9fa025cfbea285018a78d77af1438906713209a.
+Across 16 spans there are 33,193 emitted unary shapes; their SHA-256 is
+74c1ac733d7d7798360b98e9b6ba53e90e334fff5a38bd93718a1bee4cd3518f.
+The downstream whole-board tests belong to the exact subdirectory.
+
+C8. Independent audit of 15+15 with equal spans.
+
+Here the two label budgets are separate, a fact needed because 30 diagonals
+have four more potential perimeter hits than the 56 required. On the two
+horizontal sides together there are 30 distinct targets. Only the two
+main diagonals can touch both horizontal sides of the square frame.
+Thus at most two selected lines miss both horizontal sides: with k missing
+lines there are at most (30-k)+2 hits. Every U-only failed cell must be
+covered by one of those lines, since a line that meets a horizontal side at
+a target has its required x-intercept in U. The vertical pair of sides yields
+a separate (possibly different) budget of two labels for the V-only failures.
+Corner hits are counted once per side pair even when both a horizontal and
+a vertical constraint govern that corner.
+
+The unary shape enumeration from C7 therefore still applies. Each axis has
+all translations restored and its full 30-bit mask is canonicalized by
+reflection. There is no presupposed symmetry of the placement. Board
+reflections and transposition exchange complete diagonal families and
+preserve the split 15+15. Group the axes by 21(sum z)^2+5 sum z^2 on
+the *unused* centered indices z=2i-29; this equals the previously derived
+active invariant H plus a constant independent of the axes. On each axis
+separately audit_full_frame.py uses augmenting-path maximum matching on the
+bad-label graph to reject any matching of size three. By the bipartite
+vertex-cover theorem a cover of size at most two exists exactly when no
+three-edge matching exists. The independent result agrees as a set of
+canonical actual axis pairs with all 11,691 primary pairs. The canonical
+SHA-256 is 538819b8d1504c3aa69fca0a3d9b5db122a05f8e6e515230522e854f4423cf4b
+(2.34 CPU seconds beyond shape generation). No conclusion about unequal
+spans follows from the equal-span test alone.
+
+Direct controls enumerate all original axis sets and all pairs of typed
+exception residues on boards 6,8,10; both programs match the resulting
+small projected domains. Independent physical-grid tests in frame_controls.py
+compare modular predictions against actual diagonal contacts, including
+1,288 lines with zero marked frame contacts, 5,180 with one and 1,862 with
+two. No modular implication failed. See frame-audit-controls.log.
+
+Reproduce from the repository root:
+    bash Gardner/construction/replay_frame_audits.sh

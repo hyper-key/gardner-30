@@ -1,0 +1,16 @@
+transplant extensions and hole histograms matched direct checks (6 small cases)
+D4 core and two extras matched direct optimum 6 6 4
+D4 core and two extras matched direct optimum 8 6 14
+D4 core and two extras matched direct optimum 10 6 32
+D4 known optimum 12 witness reproduced
+even-even subgrid side 10 cover count 6 moment-profile count 2
+even-even subgrid side 18 cover count 10 moment-profile count 1
+even-even subgrid side 26 cover count 14 moment-profile count 1
+even-even subgrid side 30 cover count 16 moment-profile count 0
+direct triple checker accepts witness10.json 10
+direct triple checker accepts witness12.json 12
+direct triple checker accepts witness18.json 18
+direct triple checker accepts witness26.json 26
+direct triple checker accepts witness31-initial.json 31
+best 26-seed transplant has 31 addable squares
+best D4-core completion has 32 addable squares

@@ -1,0 +1,2 @@
+PASS {'bad-cell': 1, '29-lines': 43, 'monochrome': 1, 'forced-sums': 1}
+PASS rejected duplicate edge

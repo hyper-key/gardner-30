@@ -1,0 +1,4 @@
+literal small domains matched 6 2 (20, 10)
+literal small domains matched 8 3 (79, 39)
+literal small domains matched 10 4 (236, 112)
+actual diagonals with 0/1/2 distinct frame hits [1288, 5180, 1862] cell incidence checks [1428, 6020, 4424]

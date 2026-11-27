@@ -1,0 +1,2 @@
+PASS 164 axes, 82 axis reps, 3403 pairs, 43 trees; {'moment': 159, 'quota': 1331}
+PASS bogus unsplit root rejected

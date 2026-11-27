@@ -1,0 +1,51 @@
+name = "experiment"
+defaultTargets = ["Proofs"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+# mathlib v4.35.0, paired with lean-toolchain.
+rev = "56a005855ea17e0b0958f73ec801ae140b0a1679"
+
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Proofs"
+
+[[lean_lib]]
+name = "SixPointDefs"
+
+[[lean_lib]]
+name = "SixPointSolution"
+
+[[lean_lib]]
+name = "SixPointChallenge"
+
+[[lean_lib]]
+name = "SixPointIncomplete"
+
+[[lean_lib]]
+name = "SixPointWeakened"
+
+[[lean_lib]]
+name = "GardnerDefs"
+
+[[lean_lib]]
+name = "GardnerChallenge"
+
+[[lean_lib]]
+name = "GardnerSolution"
+
+[[lean_lib]]
+name = "GardnerIncomplete"
+
+[[lean_lib]]
+name = "GardnerWeakened"
+
+[[lean_lib]]
+name = "GardnerData"
+
+[[lean_lib]]
+name = "GardnerPerimeter"
+roots = ["Gardner.formal.Perimeter", "Gardner.formal.PerimeterChallenge"]

@@ -1,0 +1,5 @@
+{"n": 5, "size": 5, "timeout_ms": 10000, "seed": 0, "status": "unsat", "wall_s": 0.055}
+{"n": 6, "size": 6, "timeout_ms": 10000, "seed": 0, "status": "sat", "queens": [[1, 1], [1, 3], [3, 1], [3, 5], [5, 3], [5, 5]], "wall_s": 0.076}
+{"n": 7, "size": 7, "timeout_ms": 5000, "seed": 0, "status": "unknown", "reason": "(:reason-unknown \"timeout\")", "wall_s": 5.015}
+{"n": 8, "size": 8, "timeout_ms": 5000, "seed": 0, "status": "unknown", "reason": "(:reason-unknown \"timeout\")", "wall_s": 5.016}
+{"n": 10, "size": 10, "timeout_ms": 5000, "seed": 0, "status": "unknown", "reason": "(:reason-unknown \"timeout\")", "wall_s": 5.029}

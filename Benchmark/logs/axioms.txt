@@ -1,0 +1,8 @@
+'SixPoint.witness_valid' depends on axioms: [propext]
+'SixPoint.witness_lengths' depends on axioms: [propext]
+'SixPoint.repeated_lengths' depends on axioms: [propext]
+'SixPoint.repeated_invalid' depends on axioms: [propext]
+'SixPoint.wraparound' depends on axioms: [propext]
+'SixPoint.closing_edge_wrong_count' depends on axioms: [propext]
+'SixPoint.distance_two_preserves_parity' does not depend on any axioms
+'SixPoint.all_two_impossible' depends on axioms: [propext, Classical.choice, Quot.sound]

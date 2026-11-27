@@ -1,0 +1,4 @@
+{"n": 30, "base": 31, "removed": 1, "added": 0, "subsets": 31, "search_nodes": 31, "solutions": 0, "wall_s": 0.0002}
+{"n": 30, "base": 31, "removed": 2, "added": 1, "subsets": 465, "search_nodes": 4453, "solutions": 0, "wall_s": 0.0197}
+{"n": 30, "base": 31, "removed": 3, "added": 2, "subsets": 4495, "search_nodes": 440975, "solutions": 0, "wall_s": 2.3621}
+{"n": 30, "base": 31, "removed": 4, "added": 3, "subsets": 31465, "search_nodes": 40629567, "solutions": 0, "wall_s": 231.9222}

@@ -1,0 +1,9 @@
+span 14 direct modular projection matches 16 translations
+span 15 direct modular projection matches 210 translations
+span 16 direct modular projection matches 1522 translations
+span 17 direct modular projection matches 660 translations
+known 6 bad ordinary diagonals 1 modular violations 0
+known 10 bad ordinary diagonals 1 modular violations 0
+known 18 bad ordinary diagonals 1 modular violations 0
+known 26 bad ordinary diagonals 1 modular violations 0
+PASS every supplied pair {'uncoverable': 1278, 'forced_lane_capacity': 2980, 'moment': 960, 'survives': 612, 'quota': 22057, 'matching_after_forcing': 302, 'matching': 3844}

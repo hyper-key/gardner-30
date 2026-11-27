@@ -1,0 +1,5 @@
+axis_masks 155117520
+ordered_pairs 24061445010950400
+invariant_values 32876
+largest_class 80104
+compatible_ordered_pairs 4267994232680

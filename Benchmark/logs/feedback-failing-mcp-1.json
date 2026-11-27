@@ -1,0 +1,27 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"success\": false,\n  \"timed_out\": false,\n  \"items\": [\n    {\n      \"severity\": \"error\",\n      \"message\": \"Type mismatch\\n  Nat.zero_add 5\\nhas type\\n  0 + 5 = 5\\nbut is expected to have type\\n  SixPoint.distance 0 5 = 1\",\n      \"line\": 4,\n      \"column\": 3\n    }\n  ],\n  \"failed_dependencies\": []\n}"
+      }
+    ],
+    "structuredContent": {
+      "result": {
+        "success": false,
+        "timed_out": false,
+        "items": [
+          {
+            "severity": "error",
+            "message": "Type mismatch\n  Nat.zero_add 5\nhas type\n  0 + 5 = 5\nbut is expected to have type\n  SixPoint.distance 0 5 = 1",
+            "line": 4,
+            "column": 3
+          }
+        ],
+        "failed_dependencies": []
+      }
+    },
+    "isError": false
+  }
+}

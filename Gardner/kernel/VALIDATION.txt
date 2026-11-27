@@ -1,0 +1,46 @@
+Validation of the partial kernel formalization, 27 November 2026.
+Base: 974663ad6cffe0a9e6930dd3899088331ea84b82.
+Branch: research/gardner-m3-30-kernel.
+
+All new Lean source modules were compiled with the pinned Lean 4.35.0 toolchain.
+The structural reduction, affine coefficient expansions, symmetry transfers,
+residual-model completeness, and arithmetic-checker soundness compiled with
+only the standard logical axioms.
+
+MomentData.lean compiled successfully. All 2,032 closed arithmetic checks use
+decide +kernel, and their exclusion theorems use the proved checker soundness.
+All sixteen MomentContexts00..15 modules compiled successfully. Their exact
+problem identities are checked by kernel reduction and connect the generated
+arithmetic data to the actual paired row/column coordinate model.
+
+The combined MomentContexts import compiled successfully. Running
+  lake env lean Gardner/kernel/Axioms.lean
+returned exit 0 with:
+  PASS standard-axiom audit of structural results and all 2032 moment contexts.
+
+The axiom audit was also tested on an isolated, deliberately native-evaluated
+control theorem. It rejected the additional native_decide axiom as intended.
+This control file is outside the proof development.
+
+Running the original
+  bash Gardner/replay.sh
+from the worktree root returned exit 0. Both comparator controls and all original
+domain/certificate checks passed. This original replay retains its documented
+mixed mathematical/computational scope.
+
+The new Gardner/kernel/replay.sh passed bash syntax checking. Its individual
+Lean compilation and axiom-audit steps were all executed successfully as above;
+the script was not separately rerun as a whole after those long checks.
+
+The generator was rerun, producing exactly the tracked 2,032 arithmetic problems
+and sixteen batches containing exactly 2,032 context theorems. Git whitespace
+checks and a scan for native_decide, sorry, extra axiom declarations, unsafe
+declarations, and skipped kernel checking in the new Lean sources passed.
+
+The original /home/dev/projects/proofs checkout remains clean and unchanged.
+Milestones are committed on the attached worktree branch. The source repository
+has no Git remote configured, so these commits are local.
+
+This validation does not establish minimum30=31. See STATUS.txt for the explicit
+remaining proof obligations. In particular, lower31_of_profile_exclusion still
+takes the unproved global exclusion as an argument.

@@ -1,0 +1,3 @@
+{"n": 30, "base": 31, "removed": 1, "added": 0, "timeout_ms": 1000, "seed": 0, "status": "unsat", "wall_s": 0.056}
+{"n": 30, "base": 31, "removed": 2, "added": 1, "timeout_ms": 1000, "seed": 0, "status": "unsat", "wall_s": 0.56}
+{"n": 30, "base": 31, "removed": 3, "added": 2, "timeout_ms": 1000, "seed": 0, "status": "unknown", "reason": "(:reason-unknown \"timeout\")", "wall_s": 1.05}

@@ -1,0 +1,4 @@
+n=1 seeds=1 shells=1 directed_target_pairs=0
+n=2 seeds=1 shells=4 directed_target_pairs=0
+n=3 seeds=23 shells=112 directed_target_pairs=112
+n=4 seeds=347 shells=2208 directed_target_pairs=27332

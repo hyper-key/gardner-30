@@ -1,0 +1,187 @@
+Clean checkout of research/gardner-m3-30 at 5e95a78a2909ce50e63ccd8001e25c47e3082ad3
+27 November 2026 (Europe/Warsaw)
+Source of dependencies: project-pinned .lake/packages, reused on the provisioned box.
+No prebuilt local project modules at start. Normal comparator bubblewrap isolation.
+Command: bash Gardner/replay.sh
+Lean 4.35.0 (eb6cafb7290e8bd5f2937522d8d804f58f02bafc), Python 3.13.13, Z3 4.16.0
+Result: exit 0. wall 198.22 seconds, user 110.63 seconds, system 25.75 seconds, maximum resident memory 1937420 KiB.
+The exceptions at the end are expected rejections of deliberately damaged inputs.
+
+row triple on queen line: [(0, 0), (0, 2), (0, 3)]
+column triple on queen line: [(0, 3), (2, 3), (3, 3)]
+down diagonal triple on queen line: [(0, 0), (2, 2), (3, 3)]
+up diagonal triple on queen line: [(3, 0), (1, 2), (0, 3)]
+duplicate duplicate queen
+negative out-of-board queen
+upper edge out-of-board queen
+Boolean coordinate expected two integer coordinates
+ordinary domination accepts the lone center; all eight empty squares allow insertion
+occupied-square exception, singleton board and arbitrary-slope controls pass
+{"n": 10, "count": 10, "empty": 90, "saturated_lines": 19, "addable": [], "maximal": true}
+{"n": 12, "count": 12, "empty": 132, "saturated_lines": 22, "addable": [], "maximal": true}
+{"n": 18, "count": 18, "empty": 306, "saturated_lines": 35, "addable": [], "maximal": true}
+{"n": 26, "count": 26, "empty": 650, "saturated_lines": 51, "addable": [], "maximal": true}
+{"n": 30, "count": 31, "empty": 869, "saturated_lines": 60, "addable": [], "maximal": true}
+{"n": 1, "subsets": 2, "projected": 1, "counts": {"1": 1}, "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b", "wall_s": 0.03}
+{"n": 2, "subsets": 16, "projected": 1, "counts": {"4": 1}, "sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb", "wall_s": 0.03}
+{"n": 3, "subsets": 512, "projected": 23, "counts": {"4": 5, "5": 16, "6": 2}, "sha256": "ddba925ce56392909f4fcdb7ba91103f86a238165367e0ca00eb8ac36ea1de26", "wall_s": 0.04}
+{"n": 4, "subsets": 65536, "projected": 347, "counts": {"4": 2, "5": 8, "6": 210, "7": 116, "8": 11}, "sha256": "61c003165f1ab3343137984b748268f0a6c8a225a05112cea5ea215d7e298941", "wall_s": 0.262}
+{"mutation": "saturated means >=1", "n": 3, "queens": [[0, 0], [1, 1]], "original": "unsat", "mutated": "sat"}
+{"mutation": "drop maximality assertions", "n": 3, "queens": [], "original": "unsat", "mutated": "sat"}
+{"mutation": "omit main-diagonal capacity", "n": 3, "queens": [[0, 0], [0, 1], [1, 0], [1, 1], [2, 2]], "original": "unsat", "mutated": "sat"}
+{"mutation": "require saturated line even at occupied square", "n": 4, "queens": [[0, 1], [0, 2], [1, 1], [1, 3], [2, 2], [2, 3], [3, 0]], "original": "sat", "mutated": "unsat"}
+pair 0 0 exponents [13, 15, 15, 15] coefficient -6435
+pair 0 1 exponents [14, 14, 15, 15] coefficient 0
+pair 0 2 exponents [14, 15, 14, 15] coefficient -3432
+pair 0 3 exponents [14, 15, 15, 14] coefficient -3432
+pair 1 1 exponents [15, 13, 15, 15] coefficient 6435
+pair 1 2 exponents [15, 14, 14, 15] coefficient -3432
+pair 1 3 exponents [15, 14, 15, 14] coefficient 3432
+pair 2 2 exponents [15, 15, 13, 15] coefficient 0
+pair 2 3 exponents [15, 15, 14, 14] coefficient -3432
+pair 3 3 exponents [15, 15, 15, 13] coefficient 0
+degree-59 centered difference identity 0 verified on fixture
+degree-59 centered difference identity 1 verified on fixture
+degree-59 centered difference identity 2 verified on fixture
+degree-59 centered difference identity 3 verified on fixture
+all-four-paired degree-60 identity verified on four shifted products
+[-1062, 170, 954, 1290, 1178, 618, -390]
+span 14 direct modular projection matches 16 translations
+span 15 direct modular projection matches 210 translations
+span 16 direct modular projection matches 1522 translations
+span 17 direct modular projection matches 660 translations
+known 6 bad ordinary diagonals 1 modular violations 0
+known 10 bad ordinary diagonals 1 modular violations 0
+known 18 bad ordinary diagonals 1 modular violations 0
+known 26 bad ordinary diagonals 1 modular violations 0
+PASS every supplied pair {'uncoverable': 1278, 'forced_lane_capacity': 2980, 'moment': 960, 'survives': 612, 'quota': 22057, 'matching_after_forcing': 302, 'matching': 3844}
+PASS all 11691 supplied equal-span cases {'uncoverable': 1286, 'moment': 1072, 'survives': 775, 'quota': 31454, 'forced_lane_capacity': 3724, 'matching': 5505, 'matching_after_forcing': 401}
+PASS missing case rejected
+Verified both generators, all listed local certificates, and corruption controls. Replay temp: /tmp/gardner-frames.bVTuzAwH
+14 candidate necklaces expanded to 1 eligible axes
+15 candidate necklaces expanded to 14 eligible axes
+16 candidate necklaces expanded to 105 eligible axes
+17 candidate necklaces expanded to 560 eligible axes
+18 candidate necklaces expanded to 1792 eligible axes
+19 candidate necklaces expanded to 2268 eligible axes
+20 candidate necklaces expanded to 2604 eligible axes
+21 candidate necklaces expanded to 2046 eligible axes
+22 candidate necklaces expanded to 2485 eligible axes
+23 candidate necklaces expanded to 2772 eligible axes
+24 candidate necklaces expanded to 3773 eligible axes
+25 candidate necklaces expanded to 2604 eligible axes
+26 candidate necklaces expanded to 2996 eligible axes
+27 candidate necklaces expanded to 2604 eligible axes
+28 candidate necklaces expanded to 3041 eligible axes
+29 candidate necklaces expanded to 3528 eligible axes
+14 candidate necklaces expanded to 1 eligible axes
+15 candidate necklaces expanded to 14 eligible axes
+16 candidate necklaces expanded to 105 eligible axes
+17 candidate necklaces expanded to 560 eligible axes
+18 candidate necklaces expanded to 1792 eligible axes
+19 candidate necklaces expanded to 2268 eligible axes
+20 candidate necklaces expanded to 2604 eligible axes
+21 candidate necklaces expanded to 2046 eligible axes
+22 candidate necklaces expanded to 2485 eligible axes
+23 candidate necklaces expanded to 2772 eligible axes
+24 candidate necklaces expanded to 3773 eligible axes
+25 candidate necklaces expanded to 2604 eligible axes
+26 candidate necklaces expanded to 2996 eligible axes
+27 candidate necklaces expanded to 2604 eligible axes
+28 candidate necklaces expanded to 3041 eligible axes
+29 candidate necklaces expanded to 3528 eligible axes
+74c1ac733d7d7798360b98e9b6ba53e90e334fff5a38bd93718a1bee4cd3518f  shapes.txt
+99c7e001c6f39c0a018e796eb9fa025cfbea285018a78d77af1438906713209a  pairs29.txt
+literal small domains matched 6 2 (20, 10)
+literal small domains matched 8 3 (79, 39)
+literal small domains matched 10 4 (236, 112)
+actual diagonals with 0/1/2 distinct frame hits [1288, 5180, 1862] cell incidence checks [1428, 6020, 4424]
+PASS shape count 33193 canonical full-span pairs 11691
+spans {14: 8, 15: 105, 16: 736, 17: 1600, 18: 892, 19: 1139, 20: 1287, 21: 879, 22: 746, 23: 885, 24: 1411, 25: 644, 26: 455, 27: 371, 28: 379, 29: 154}
+canonical SHA256 538819b8d1504c3aa69fca0a3d9b5db122a05f8e6e515230522e854f4423cf4b CPU seconds 2.705
+Fresh replay written to /tmp/tmp.b5crN3xXc0
+14 eligible-axes 1 compatible-pairs 1
+15 eligible-axes 0 compatible-pairs 0
+16 eligible-axes 1 compatible-pairs 1
+17 eligible-axes 10 compatible-pairs 3
+18 eligible-axes 8 compatible-pairs 4
+19 eligible-axes 14 compatible-pairs 3
+20 eligible-axes 6 compatible-pairs 2
+21 eligible-axes 6 compatible-pairs 3
+22 eligible-axes 11 compatible-pairs 5
+23 eligible-axes 12 compatible-pairs 3
+24 eligible-axes 22 compatible-pairs 5
+25 eligible-axes 10 compatible-pairs 0
+26 eligible-axes 15 compatible-pairs 8
+27 eligible-axes 12 compatible-pairs 0
+28 eligible-axes 15 compatible-pairs 7
+29 eligible-axes 7 compatible-pairs 1
+inputs 46 totals {'perfect': 189824, 'split': 40263, 'cover': 7, 'firstD': 7} pairs-with-final-profile 0
+{'bad-cell': 1, '29-lines': 43, 'monochrome': 1, 'forced-sums': 1}
+PASS {'bad-cell': 1, '29-lines': 43, 'monochrome': 1, 'forced-sums': 1}
+PASS rejected duplicate edge
+Fresh replay written to /tmp/tmp.2CPbf0VUGT
+correct 0
+incomplete 1
+weakened 1
+SixPointDefs.lean: OK
+SixPointChallenge.lean: OK
+Benchmark/comparator.json: OK
+GardnerDefs.lean: OK
+GardnerChallenge.lean: OK
+Gardner/formal/solution.json: OK
+short row sets 155117520
+18 balanced rows 736 endpoint rows 208 H comparisons 34944 matches 0
+22 balanced rows 99444 endpoint rows 66 H comparisons 7392 matches 0
+26 balanced rows 1965824 endpoint rows 40 H comparisons 2240 matches 0
+solution 0
+incomplete 1
+weakened 1
+GardnerDefs.lean: OK
+GardnerChallenge.lean: OK
+Gardner/formal/solution.json: OK
+GardnerDefs.lean: OK
+Gardner/formal/PerimeterChallenge.lean: OK
+Gardner/formal/lower.json: OK
+GardnerDefs.lean: OK
+Gardner/formal/PerimeterChallenge.lean: OK
+Gardner/formal/lower.json: OK
+'Gardner.Marginal.paired_moments' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gardner.Marginal.incompatible_moment_sets' depends on axioms: [propext, Classical.choice, Quot.sound]
+eaa7e9bc46b7c0af004fe267f5efc8eb8989ace535d9de78af6dd1007f826a70  /tmp/gardner-local-lean.bUwS5YFI/records.jsonl
+29-line records 10, quota leaves 2, moment leaves 2
+30-line equal-span records 10, quota leaves 1, moment leaves 3
+PASS elapsed milliseconds 9
+29-line records 9016, quota leaves 22057, moment leaves 960
+30-line equal-span records 11691, quota leaves 31454, moment leaves 1072
+PASS elapsed milliseconds 4298
+uncaught exception: quota leaf within quota
+uncaught exception: missing records
+PASS damaged proof and incomplete-domain controls rejected.
+PASS: witness, bounds, domain coverage and finite rejection certificates.
+
+Positive comparator verdicts extracted from the fresh logs
+
+six-correct
+Lean paranoid kernel accepts the solution
+lean4lean kernel accepts the solution
+nanoda kernel accepts the solution
+con-leche kernel accepts the solution
+con-ron kernel accepts the solution
+Lean default kernel accepts the solution
+
+solution
+Lean paranoid kernel accepts the solution
+lean4lean kernel accepts the solution
+nanoda kernel accepts the solution
+con-leche kernel accepts the solution
+con-ron kernel accepts the solution
+Lean default kernel accepts the solution
+
+lower
+Lean paranoid kernel accepts the solution
+lean4lean kernel accepts the solution
+nanoda kernel accepts the solution
+con-leche kernel accepts the solution
+con-ron kernel accepts the solution
+Lean default kernel accepts the solution

@@ -1,0 +1,8 @@
+{"label": "known-6", "n": 6, "draws": 1, "classification": {"survives": 1}, "matching_histogram": {"4": 1}, "wall_s": 0.0}
+{"label": "known-4", "n": 4, "draws": 2, "classification": {"survives": 2}, "matching_histogram": {"2": 2}, "wall_s": 0.0}
+{"label": "invalid-4", "n": 4, "draws": 1, "classification": {"uncoverable": 1}, "matching_histogram": {"2": 1}, "wall_s": 0.0}
+{"label": "all-interval-pairs", "n": 30, "draws": 256, "classification": {"uncoverable": 60, "forced_lane_capacity": 192, "survives": 4}, "matching_histogram": {"28": 8, "30": 4, "31": 8, "32": 4, "33": 16, "34": 4, "35": 24, "36": 4, "37": 32, "38": 4, "39": 40, "40": 4, "41": 48, "43": 56}, "wall_s": 0.053}
+{"label": "all-parity-pairs", "n": 30, "draws": 4, "classification": {"survives": 4}, "matching_histogram": {"28": 4}, "wall_s": 0.001}
+{"label": "uniform-independent", "n": 30, "draws": 1000, "classification": {"matching": 705, "forced_lane_capacity": 281, "uncoverable": 14}, "matching_histogram": {"38": 1, "40": 1, "41": 1, "42": 2, "43": 9, "44": 15, "45": 27, "46": 96, "47": 102, "48": 182, "49": 179, "50": 209, "51": 115, "52": 52, "53": 6, "54": 3}, "wall_s": 0.215}
+{"label": "uniform-identical", "n": 30, "draws": 1000, "classification": {"matching": 745, "forced_lane_capacity": 242, "uncoverable": 13}, "matching_histogram": {"36": 3, "37": 6, "38": 17, "39": 29, "40": 52, "41": 69, "42": 88, "43": 128, "44": 161, "45": 155, "46": 121, "47": 87, "48": 64, "49": 13, "50": 4, "51": 3}, "wall_s": 0.206}
+{"label": "one-swap-from-parity-per-axis", "n": 30, "draws": 1000, "classification": {"uncoverable": 975, "matching": 25}, "matching_histogram": {"40": 3, "41": 20, "42": 21, "43": 188, "44": 253, "45": 208, "46": 161, "47": 87, "48": 41, "49": 18}, "wall_s": 0.163}

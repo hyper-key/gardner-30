@@ -1,0 +1,3 @@
+PASS shape count 33193 canonical full-span pairs 11691
+spans {14: 8, 15: 105, 16: 736, 17: 1600, 18: 892, 19: 1139, 20: 1287, 21: 879, 22: 746, 23: 885, 24: 1411, 25: 644, 26: 455, 27: 371, 28: 379, 29: 154}
+canonical SHA256 538819b8d1504c3aa69fca0a3d9b5db122a05f8e6e515230522e854f4423cf4b CPU seconds 2.342

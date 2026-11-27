@@ -1,0 +1,4 @@
+short row sets 155117520
+18 balanced rows 736 endpoint rows 208 H comparisons 34944 matches 0
+22 balanced rows 99444 endpoint rows 66 H comparisons 7392 matches 0
+26 balanced rows 1965824 endpoint rows 40 H comparisons 2240 matches 0

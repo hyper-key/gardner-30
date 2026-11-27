@@ -1,0 +1,6 @@
+Feedback.lean:4:2: error: Type mismatch
+  Nat.zero_add 5
+has type
+  0 + 5 = 5
+but is expected to have type
+  SixPoint.distance 0 5 = 1

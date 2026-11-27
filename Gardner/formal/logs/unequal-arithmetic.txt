@@ -1,0 +1,3 @@
+'Gardner.UnequalSpan.endpoint_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gardner.UnequalSpan.possible_long_span' depends on axioms: [propext, Quot.sound]
+'Gardner.UnequalSpan.endpoint_shift' depends on axioms: [propext, Quot.sound]

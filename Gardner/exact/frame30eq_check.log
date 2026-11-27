@@ -1,0 +1,2 @@
+PASS all 11691 supplied equal-span cases {'uncoverable': 1286, 'moment': 1072, 'survives': 775, 'quota': 31454, 'forced_lane_capacity': 3724, 'matching': 5505, 'matching_after_forcing': 401}
+PASS missing case rejected

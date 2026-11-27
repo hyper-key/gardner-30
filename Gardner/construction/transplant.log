@@ -1,0 +1,26 @@
+offset 0 0 legal final 896916 best 33
+offset 0 1 legal final 797736 best 32
+offset 0 2 legal final 799442 best 32
+offset 0 3 legal final 856018 best 33
+offset 0 4 legal final 854286 best 33
+offset 1 0 legal final 797736 best 32
+offset 1 1 legal final 705052 best 32
+offset 1 2 legal final 706703 best 31
+offset 1 3 legal final 756432 best 32
+offset 1 4 legal final 754755 best 32
+offset 2 0 legal final 799442 best 32
+offset 2 1 legal final 706703 best 31
+offset 2 2 legal final 708393 best 31
+offset 2 3 legal final 758148 best 32
+offset 2 4 legal final 756432 best 33
+offset 3 0 legal final 856018 best 33
+offset 3 1 legal final 756432 best 32
+offset 3 2 legal final 758148 best 32
+offset 3 3 legal final 805632 best 34
+offset 3 4 legal final 803890 best 33
+offset 4 0 legal final 854286 best 33
+offset 4 1 legal final 754755 best 32
+offset 4 2 legal final 756432 best 33
+offset 4 3 legal final 803890 best 33
+offset 4 4 legal final 802187 best 33
+sum [25, 1740, 59666, 1296298, 19605864] best 31 elapsed 22.601

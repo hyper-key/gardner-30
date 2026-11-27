@@ -1,0 +1,1 @@
+'Gardner.compressed_moment30' depends on axioms: [propext, Classical.choice, Quot.sound]

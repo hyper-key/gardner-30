@@ -1,0 +1,11 @@
+⚠ [964/968] Replayed SixPointDefs
+warning: SixPointDefs.lean: imports `Mathlib.Data.Fintype.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SixPointDefs.lean: imports `Mathlib.Data.Fintype.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SixPointDefs.lean: imports `Mathlib.Tactic.FinCases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SixPointDefs.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SixPointDefs.lean: imports `Mathlib.Data.Nat.Dist` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: SixPointDefs.lean: imports `Mathlib.Data.Fin.VecNotation` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [965/968] Built SixPointWeakened (1.2s)
+⚠ [967/968] Built SixPointIncomplete (1.3s)
+warning: SixPointIncomplete.lean:5:8: declaration uses `sorry`
+Build completed successfully (968 jobs).

@@ -1,0 +1,40 @@
+$ lean --version
+Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+exit=0
+
+$ lake --version
+Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)
+exit=0
+
+$ python3 --version
+Python 3.13.13
+exit=0
+
+$ z3 --version
+Z3 version 4.16.0 - 64 bit
+exit=0
+
+$ nix --version
+nix (Nix) 2.34.7
+exit=0
+
+$ lean --print-prefix
+/home/dev/.elan/toolchains/leanprover--lean4---v4.35.0
+exit=0
+
+$ git -C .lake/packages/mathlib rev-parse HEAD
+56a005855ea17e0b0958f73ec801ae140b0a1679
+exit=0
+
+$ git remote
+exit=0
+
+$ readlink -f /run/current-system/sw/bin/lean /run/current-system/sw/bin/z3 /run/current-system/sw/bin/python3 /run/current-system/sw/bin/nix /run/current-system/sw/bin/lean-lsp-mcp /run/current-system
+/nix/store/vdwa17hx00gfzhz0kbaw5x3cp781mgx0-elan-4.2.3/bin/elan
+/nix/store/dn5a9iwvsbzwl2p7jbx9lql2q41z3sh2-z3-4.16.0/bin/z3
+/nix/store/60m4rxhg2fldqaak400c0lry96ijrzqn-python3-3.13.13/bin/python3.13
+/nix/store/hqwkw2nala59avjximpdmn1yi474n4h7-nix-2.34.7/bin/nix
+/nix/store/c777vbhs2m4vkbkaaqx64p7vsgl7d3fb-lean-lsp-mcp-0.26.2/bin/lean-lsp-mcp
+/nix/store/idkbgimavxla9qm0dc15skln14qkszag-nixos-system-lean-26.11.20260610.9ae611a
+exit=0
+

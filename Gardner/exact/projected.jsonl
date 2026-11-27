@@ -1,0 +1,4 @@
+{"n": 1, "subsets": 2, "projected": 1, "counts": {"1": 1}, "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b", "wall_s": 0.029}
+{"n": 2, "subsets": 16, "projected": 1, "counts": {"4": 1}, "sha256": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb", "wall_s": 0.027}
+{"n": 3, "subsets": 512, "projected": 23, "counts": {"4": 5, "5": 16, "6": 2}, "sha256": "ddba925ce56392909f4fcdb7ba91103f86a238165367e0ca00eb8ac36ea1de26", "wall_s": 0.038}
+{"n": 4, "subsets": 65536, "projected": 347, "counts": {"4": 2, "5": 8, "6": 210, "7": 116, "8": 11}, "sha256": "61c003165f1ab3343137984b748268f0a6c8a225a05112cea5ea215d7e298941", "wall_s": 0.225}

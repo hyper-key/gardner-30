@@ -1,0 +1,6 @@
+{
+  "challenge_module": "Gardner.formal.PerimeterChallenge",
+  "solution_module": "Gardner.formal.Perimeter",
+  "theorem_names": ["Gardner.Perimeter.lower30"],
+  "permitted_axioms": ["propext", "Classical.choice", "Quot.sound"]
+}

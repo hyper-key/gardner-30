@@ -1,0 +1,19 @@
+{
+  "challenge_module": "SixPointChallenge",
+  "solution_module": "SixPointIncomplete",
+  "theorem_names": [
+    "SixPoint.witness_valid",
+    "SixPoint.witness_lengths",
+    "SixPoint.repeated_lengths",
+    "SixPoint.repeated_invalid",
+    "SixPoint.wraparound",
+    "SixPoint.closing_edge_wrong_count",
+    "SixPoint.distance_two_preserves_parity",
+    "SixPoint.all_two_impossible"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ]
+}

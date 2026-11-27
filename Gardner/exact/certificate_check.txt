@@ -1,0 +1,1 @@
+PASS: seed, 31 singleton and 465 double-deletion cases. Corrupted certificate rejected.

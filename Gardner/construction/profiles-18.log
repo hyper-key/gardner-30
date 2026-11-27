@@ -1,0 +1,2 @@
+hole None even symmetric True D [-5, -5, -3, -3, -2, -2, -1, -1, 0, 0, 1, 1, 2, 2, 3, 3, 5, 5] S [0, 1, 1, 5, 5, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 13, 13, 16]
+counts {'holes': 1, 'moment_matches': 1, 'sat': 1} elapsed 0.016

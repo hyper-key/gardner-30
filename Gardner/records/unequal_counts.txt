@@ -1,0 +1,3 @@
+span 18 short_shapes 680 good_steps 65 eligible_row_offsets 104 tested_column_shapes 910 resulting_pairs 0
+span 22 short_shapes 116280 good_steps 75 eligible_row_offsets 33 tested_column_shapes 462 resulting_pairs 0
+span 26 short_shapes 4457400 good_steps 90 eligible_row_offsets 20 tested_column_shapes 280 resulting_pairs 0

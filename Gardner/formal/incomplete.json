@@ -1,0 +1,12 @@
+{
+  "challenge_module": "GardnerChallenge",
+  "solution_module": "GardnerIncomplete",
+  "theorem_names": [
+    "Gardner.upper31"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ]
+}

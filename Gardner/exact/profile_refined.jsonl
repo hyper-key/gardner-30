@@ -1,0 +1,1 @@
+{"n": 30, "size": 30, "cut": "refined", "timeout_ms": 5000, "seed": 0, "status": "unknown", "reason": "(:reason-unknown \"timeout\")", "conflicts": "165033", "decisions": "1064977", "memory": "21.91", "rlimit-count": "28550813", "wall_s": 5.06}

@@ -1,0 +1,3 @@
+SixPointDefs.lean: OK
+SixPointChallenge.lean: OK
+Benchmark/comparator.json: OK

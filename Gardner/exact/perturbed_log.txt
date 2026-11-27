@@ -1,0 +1,3 @@
+representatives by certificate length {31: 624, 1: 25026} wall_s 1.432
+verified 204300 oriented axis pairs; representatives by certificate length {31: 624, 1: 25026}
+PASS corrupted case rejected

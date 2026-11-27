@@ -1,0 +1,32 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"line_context\": \"  exact Nat.zero_add 5\",\n  \"goals\": null,\n  \"goals_before\": [\n    {\n      \"context\": [],\n      \"goal\": \"SixPoint.distance 0 5 = 1\",\n      \"status\": \"open\",\n      \"pretty\": \"⊢ SixPoint.distance 0 5 = 1\"\n    }\n  ],\n  \"goals_after\": [\n    {\n      \"context\": [],\n      \"goal\": \"SixPoint.distance 0 5 = 1\",\n      \"status\": \"open\",\n      \"pretty\": \"⊢ SixPoint.distance 0 5 = 1\"\n    }\n  ]\n}"
+      }
+    ],
+    "structuredContent": {
+      "line_context": "  exact Nat.zero_add 5",
+      "goals": null,
+      "goals_before": [
+        {
+          "context": [],
+          "goal": "SixPoint.distance 0 5 = 1",
+          "status": "open",
+          "pretty": "⊢ SixPoint.distance 0 5 = 1"
+        }
+      ],
+      "goals_after": [
+        {
+          "context": [],
+          "goal": "SixPoint.distance 0 5 = 1",
+          "status": "open",
+          "pretty": "⊢ SixPoint.distance 0 5 = 1"
+        }
+      ]
+    },
+    "isError": false
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "status": "fulfilled",
+  "value": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"line_context\": \"  exact False.elim (by assumption)\",\n  \"goals\": null,\n  \"goals_before\": [\n    {\n      \"context\": [\n        {\n          \"name\": \"n\",\n          \"type\": \"ℕ\"\n        }\n      ],\n      \"goal\": \"n * 1 = n\",\n      \"status\": \"open\",\n      \"pretty\": \"n : ℕ\\n⊢ n * 1 = n\"\n    }\n  ],\n  \"goals_after\": []\n}"
+      }
+    ],
+    "structuredContent": {
+      "line_context": "  exact False.elim (by assumption)",
+      "goals": null,
+      "goals_before": [
+        {
+          "context": [
+            {
+              "name": "n",
+              "type": "ℕ"
+            }
+          ],
+          "goal": "n * 1 = n",
+          "status": "open",
+          "pretty": "n : ℕ\n⊢ n * 1 = n"
+        }
+      ],
+      "goals_after": []
+    },
+    "isError": false
+  }
+}
